@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Mohammed Sinan K P, UI/UX Developer and BCA student at Bengaluru City University.">
+<title>Mohammed Sinan K P</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+/* Theme: red on black. Layout: a single column that reads like an API route table. The hero splits "front" and "back" end, sections are labelled as endpoints. */
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --fg: #f4f2f2;
+  --muted: #a6a1a1;
+  --line: #2b2628;
+  --accent: #ff3b4e;
+  --accent-strong: #d81b2d;
+  --accent-ink: #ffffff;
+  --ok: #4cc77a;
+  --grid: rgba(255, 255, 255, 0.045);
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.mono { font-family: var(--font-mono); }
+
+/* nav */
+nav { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center; padding-block: 24px; font-family: var(--font-mono); font-size: 13px; }
+nav .brand { font-weight: 500; }
+nav ul { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--accent); }
+
+/* hero */
+.hero { padding-block: 56px 72px; border-bottom: 1px solid var(--line); }
+.status { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.status b { color: var(--ok); font-weight: 500; }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); display: inline-block; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.6rem, 9vw, 5.6rem); line-height: 0.98; letter-spacing: -0.03em; margin: 20px 0 24px; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.role { font-family: var(--font-display); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 500; margin: 0 0 12px; }
+.lede { max-width: 58ch; color: var(--muted); font-size: 1.05rem; margin: 0 0 32px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { font-family: var(--font-mono); font-size: 14px; padding: 12px 20px; border-radius: 4px; text-decoration: none; border: 1px solid var(--accent); }
+.btn.primary { background: var(--accent-strong); border-color: var(--accent-strong); color: var(--accent-ink); }
+.btn.ghost { color: var(--accent); }
+.btn:hover { opacity: 0.88; }
+
+/* sections */
+section { padding-block: 64px; border-bottom: 1px solid var(--line); }
+.route { font-family: var(--font-mono); font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.route em { font-style: normal; color: var(--accent); }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 28px; text-wrap: balance; }
+p { margin: 0 0 16px; }
+
+.about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+.about > * { min-width: 0; }
+.facts { margin: 0; display: grid; gap: 0; align-self: start; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; }
+.facts div { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.facts div:last-child { border-bottom: 0; }
+.facts dt { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.facts dd { margin: 2px 0 0; font-weight: 500; }
+
+.stack { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.stack > * { min-width: 0; }
+.col { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 24px; }
+.col h3 { font-family: var(--font-display); font-size: 1.25rem; margin: 0 0 4px; }
+.col .sub { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin: 0 0 18px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.tags li { font-family: var(--font-mono); font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); }
+
+.projects { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 680px; }
+.projects > * { min-width: 0; }
+.card { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+.card .badge { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.card h3 { font-family: var(--font-display); font-size: 1.2rem; line-height: 1.25; margin: 0; }
+.card p { color: var(--muted); font-size: 0.95rem; margin: 0; flex: 1; }
+.card .tags li { font-size: 12px; padding: 3px 8px; }
+.note { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 20px; }
+
+.contact { border-bottom: 0; }
+.contact-list { display: grid; gap: 0; max-width: 560px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.contact-list div { display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.contact-list div:last-child { border-bottom: 0; }
+.contact-list dt { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.contact-list dd { margin: 0; font-family: var(--font-mono); font-size: 14px; overflow-wrap: anywhere; }
+footer { padding-block: 28px 40px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); }
+
+
+
+/* background effects */
+.bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.bg::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 78%); mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 78%); animation: gridmove 14s linear infinite; }
+.orb { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform; background: radial-gradient(circle, color-mix(in srgb, var(--accent-strong) 38%, transparent), transparent 65%); }
+.o1 { width: 52vmax; height: 52vmax; top: -18vmax; right: -14vmax; animation: drift1 24s ease-in-out infinite alternate; }
+.o2 { width: 44vmax; height: 44vmax; bottom: -16vmax; left: -14vmax; animation: drift2 30s ease-in-out infinite alternate; opacity: .8; }
+@keyframes drift1 { from { transform: translate(0, 0) scale(1); } to { transform: translate(-12vmax, 14vmax) scale(1.18); } }
+@keyframes drift2 { from { transform: translate(0, 0) scale(1); } to { transform: translate(16vmax, -10vmax) scale(1.12); } }
+@keyframes gridmove { from { background-position: 0 0; } to { background-position: 56px 56px; } }
+
+/* motion */
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 16px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.btn .arrow { display: inline-block; transition: transform .25s ease; }
+.btn:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent); }
+.btn:hover .arrow { transform: translateY(3px); }
+.btn:active { transform: translateY(0); }
+.btn.ghost:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+nav a { transition: color .2s ease; }
+.card, .col { transition: transform .25s ease, border-color .25s ease; }
+.card:hover, .col:hover { transform: translateY(-3px); border-color: var(--accent); }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.hero > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.hero > *:nth-child(2) { animation-delay: .08s; }
+.hero > *:nth-child(3) { animation-delay: .16s; }
+.hero > *:nth-child(4) { animation-delay: .24s; }
+.hero > *:nth-child(5) { animation-delay: .32s; }
+section.arrive .route, section.arrive h2 { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+section.arrive h2 { animation-delay: .08s; }
+section.arrive .card, section.arrive .contact-list { animation: rise .7s cubic-bezier(.2,.7,.2,1) .18s both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@media (max-width: 760px) {
+  .about, .stack { grid-template-columns: 1fr; }
+  .hero { padding-block: 36px 52px; }
+  section { padding-block: 48px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span></div>
+
+<div class="wrap">
+  <nav aria-label="Primary">
+    <span class="brand">sinan.dev</span>
+    <ul>
+      <li><a href="#about">/about</a></li>
+      <li><a href="#skills">/skills</a></li>
+      <li><a href="#projects">/projects</a></li>
+      <li><a href="#contact">/contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="status"><i aria-hidden="true"></i><span>Available for internships and junior roles</span></div>
+    <h1>Mohammed <span>Sinan</span> K P</h1>
+    <p class="role">UI/UX Developer</p>
+    <p class="lede">I design and build clear, accessible and responsive interfaces for the web. BCA student at Bengaluru City University, seeking internship and entry-level opportunities in UI/UX and front end development.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View projects <span class="arrow" aria-hidden="true">&darr;</span></a>
+      <a class="btn ghost" href="#contact">Get in touch <span class="arrow" aria-hidden="true">&darr;</span></a>
+    </div>
+  </header>
+
+  <section id="about">
+    <p class="route"><em>GET</em> /about</p>
+    <h2>About me</h2>
+    <div class="about">
+      <div>
+        <p>I am pursuing a Bachelor of Computer Applications at Bengaluru City University. My work focuses on user-centered interfaces: understanding what people need, designing layouts and flows that serve them, and implementing those designs in clean, maintainable code.</p>
+        <p>I am seeking an internship or junior role where I can contribute to real products, collaborate with designers and engineers, and keep growing in UI/UX practice.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Education</dt><dd>BCA (ongoing)</dd></div>
+        <div><dt>University</dt><dd>Bengaluru City University</dd></div>
+        <div><dt>Focus</dt><dd>UI/UX design and front end development</dd></div>
+        <div><dt>Based in</dt><dd>Karnataka, India</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="route"><em>GET</em> /skills</p>
+    <h2>Skills</h2>
+    <div class="stack">
+      <div class="col">
+        <h3>UI/UX design</h3>
+        <p class="sub">research, structure, visuals</p>
+        <ul class="tags">
+          <li>Wireframing</li><li>Prototyping</li><li>Figma</li><li>User flows</li><li>Accessibility basics</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Development</h3>
+        <p class="sub">turning designs into working interfaces</p>
+        <ul class="tags">
+          <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Responsive design</li><li>Git &amp; GitHub</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="route"><em>GET</em> /projects</p>
+    <h2>Selected work</h2>
+    <div class="projects">
+      <article class="card">
+        <span class="badge">AI web application</span>
+        <h3>Career Genie</h3>
+        <p>An AI-powered CV maker that helps users create a professional CV quickly. Users enter their details and the AI helps write and structure the content, with a clean, easy-to-use interface that works on phones and desktops.</p>
+        <ul class="tags"><li>AI</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive design</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <p class="route"><em>POST</em> /contact</p>
+    <h2>Contact</h2>
+    <dl class="contact-list">
+      <div><dt>email</dt><dd>sinanp865@gmail.com</dd></div>
+      <div><dt>linkedin</dt><dd><a href="https://www.linkedin.com/in/mohammed-sinan-k-p-a25893314" target="_blank" rel="noopener">linkedin.com/in/mohammed-sinan-k-p-a25893314</a></dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Mohammed Sinan K P</span>
+    <span>Bengaluru City University &middot; BCA</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var target = document.getElementById(a.getAttribute("href").slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      target.classList.remove("arrive");
+      void target.offsetWidth;
+      setTimeout(function () { target.classList.add("arrive"); }, reduce ? 0 : 350);
+      setTimeout(function () { target.classList.remove("arrive"); }, 2400);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
